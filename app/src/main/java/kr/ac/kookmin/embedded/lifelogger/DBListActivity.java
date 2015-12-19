@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,17 +26,15 @@ public class DBListActivity extends AppCompatActivity implements AdapterView.OnI
     String tableName = "logListTable";
     int dbMode = Context.MODE_PRIVATE;
 
-
     ArrayAdapter<String> baseAdapter;
     ArrayList<String> arrList = null;
     ArrayList<String> arr_id_list = null;
     ArrayList<String> arr_lon_list = null;
     ArrayList<String> arr_lat_list = null;
 
+    //Object about layout
     Button mBtRead;
     Button mBtReset;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -45,9 +42,10 @@ public class DBListActivity extends AppCompatActivity implements AdapterView.OnI
 
         setContentView(R.layout.activity_dblist);
 
-        // // Database 생성 및 열기
+        //  Database 생성 및 열기
         db = openOrCreateDatabase(dbName,dbMode,null);
 
+        // layout 설정
         mBtRead = (Button) findViewById(R.id.bt_read);
         mBtReset = (Button)findViewById(R.id.bt_reset);
 
@@ -60,16 +58,16 @@ public class DBListActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-
-        mBtReset.setOnClickListener(new View.OnClickListener(){
+        mBtReset.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 deleteAll();
+                arrList.clear();
+                selectAll();
+                baseAdapter.notifyDataSetChanged();
             }
         });
 
-
-        // Create listview
         arrList = new ArrayList<String>();
         arr_id_list = new ArrayList<String>();
         arr_lon_list= new ArrayList<String>();
@@ -98,7 +96,7 @@ public class DBListActivity extends AppCompatActivity implements AdapterView.OnI
             String name = results.getString(1);
             String lon = results.getString(2);
             String lat = results.getString(3);
-            Log.d("lab_sqlite", "index= " + id + " name=" + name);
+            //Log.d("lab_sqlite", "index= " + id + " name=" + name);
 
             arr_id_list.add(id);
             arrList.add(name);
@@ -109,6 +107,7 @@ public class DBListActivity extends AppCompatActivity implements AdapterView.OnI
         results.close();
     }
 
+    //길게누를 때 이벤트 설정
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
         final Integer selectedPos = i;

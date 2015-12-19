@@ -18,9 +18,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
-
-
 public class DataView extends AppCompatActivity {
 
     //Object about Database
@@ -29,19 +26,18 @@ public class DataView extends AppCompatActivity {
     String tableName = "logListTable";
     int dbMode = Context.MODE_PRIVATE;
 
-
-
-
+    //Object about layout
     Button back;
+
+    //variable
     String Title;
     String what;
     String lon;
     String lat;
-
     double mlon;
     double mlat;
 
-
+    //method about GoogleMap
     static final LatLng SEOUL = new LatLng( 37.56, 126.97);
     private GoogleMap map;
 
@@ -50,8 +46,12 @@ public class DataView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dataview);
 
-        db = openOrCreateDatabase(dbName,dbMode,null);
+        TextView textView1 = (TextView)findViewById(R.id.textView6);
+        TextView textView2 = (TextView)findViewById(R.id.textView7);
 
+
+
+        db = openOrCreateDatabase(dbName,dbMode,null);
 
         back = (Button)findViewById(R.id.bt_back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,6 @@ public class DataView extends AppCompatActivity {
         String id = intent.getExtras().getString("p_id");
         Log.d("id",id);
 
-
         String sql = "select * from " + tableName + " where id = " + id + ";";
         Cursor result = db.rawQuery(sql, null);
 
@@ -77,12 +76,9 @@ public class DataView extends AppCompatActivity {
             lat = result.getString(3);
         }
         result.close();
-        TextView textView1 = (TextView)findViewById(R.id.textView6);
-        TextView textView2 = (TextView)findViewById(R.id.textView7);
 
         textView1.setText(Title);
         textView2.setText(what);
-
 
         mlon = Double.valueOf(lon);
         mlat = Double.valueOf(lat);

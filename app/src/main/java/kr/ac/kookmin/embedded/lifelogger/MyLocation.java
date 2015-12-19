@@ -147,8 +147,6 @@ public class MyLocation {
                 Log.e("PERMISSION_EXCEPTION", "PERMISSION_NOT_GRANTED");
             }
 
-
-
             Location net_loc = null, gps_loc = null;
 
             try {
@@ -161,9 +159,6 @@ public class MyLocation {
             } catch (SecurityException e) {
                 Log.e("PERMISSION_EXCEPTION", "PERMISSION_NOT_GRANTED");
             }
-
-
-
 
             //if there are both values use the latest one
             if (gps_loc != null && net_loc != null) {

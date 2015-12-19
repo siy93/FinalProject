@@ -30,17 +30,16 @@ public class GoogleMapActivity extends AppCompatActivity {
     private GoogleMap map;
     static final LatLng SEOUL = new LatLng( 37.56, 126.97);
 
-
     //Object about layout
     EditText mEtinform;
     Button mBtsave;
     Context mContext;
+    private ProgressBar mRegistrationProgressBar;
 
-    //other
+    //Intent and Variable
     Intent diary;
     double lon;
     double lat;
-    private ProgressBar mRegistrationProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +48,19 @@ public class GoogleMapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_googlemap);
         mContext = this.getApplication().getApplicationContext();
         mRegistrationProgressBar = (ProgressBar) findViewById(R.id.registrationProgressBar);
+        mEtinform = (EditText) findViewById(R.id.et_inform);
+        mBtsave = (Button) findViewById(R.id.bt_save);
 
         diary= new Intent(this,DiaryActivity.class);
 
-        //map관련
+        //구글 맵 관련 메소드
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         map = mapFragment.getMap();
 
         //현재 위치로 가는 버튼 표시
         map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(SEOUL, 10));//초기 위치...수정필
-        // map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(SEOUL, 10));
 
         MyLocation.LocationResult locationResult = new MyLocation.LocationResult() {
             @Override
@@ -79,11 +79,7 @@ public class GoogleMapActivity extends AppCompatActivity {
         myLocation.getLocation(getApplicationContext(), locationResult);
 
 
-
-        mEtinform = (EditText) findViewById(R.id.et_inform);
-        mBtsave = (Button) findViewById(R.id.bt_save);
-
-
+        //Button Setting
         mBtsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +95,6 @@ public class GoogleMapActivity extends AppCompatActivity {
                         (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
-
                 diary.putExtra("local", name);
                 diary.putExtra("lon", lon);
                 diary.putExtra("lat", lat);
@@ -111,7 +106,7 @@ public class GoogleMapActivity extends AppCompatActivity {
 
     }
 
-    //map 관련
+    //구글 맵 관련 메소드
     private void drawMarker(Location location) {
 
         //기존 마커 지우기

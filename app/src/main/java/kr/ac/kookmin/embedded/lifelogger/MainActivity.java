@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         // Splash(로딩화명) 띄우기
         startActivity(splash);
 
-
-
         bt_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
