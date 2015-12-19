@@ -47,7 +47,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	-		GPS 를 받아오는동안 상태를 나타내는 ProgressBar 추가
 	-		앱 아이콘 이미지 추가
 	-		위도 경도 정보가 표시되던것을 주소정보가 표시되게 수정
-	-		
+			
 ####v_1.3	
 
 	-		코드 간결화 ,커버리지 높이기
