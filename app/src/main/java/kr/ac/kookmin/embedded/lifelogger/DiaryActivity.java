@@ -44,6 +44,7 @@ public class DiaryActivity extends AppCompatActivity {
         TextView textView1 = (TextView)findViewById(R.id.textView);
         TextView textView2 = (TextView)findViewById(R.id.textView4);
         TextView textView3 = (TextView)findViewById(R.id.textView5);
+        TextView textView4 = (TextView)findViewById(R.id.textView9);
 
         //db관련
         db = openOrCreateDatabase(dbName,dbMode,null);
@@ -51,14 +52,15 @@ public class DiaryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String local = intent.getExtras().getString("local");
+        final String addr = intent.getExtras().getString("address");
         final double lon = intent.getExtras().getDouble("lon");
-        Log.d("double",String.valueOf(lon));
         final double lat = intent.getExtras().getDouble("lat");
-        Log.d("double",String.valueOf(lat));
+
 
         textView1.setText(local);
         textView2.setText(String.valueOf(lon));
         textView3.setText(String.valueOf(lat));
+        textView4.setText(addr);
 
         confirm = (Button)findViewById(R.id.bt_confirm);
         confirm.setOnClickListener(new View.OnClickListener(){
