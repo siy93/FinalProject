@@ -38,3 +38,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 ####v_1.0	
 
 	-		기본 앱, 위치기반 데이터 저장 및 조회 기능 구현
+	
+		
+####v_1.0	
+
+	-		메인 액티비티 툴바 제거\nGPS 를 받아오는동안 상태를 나타내는 ProgressBar \n추가앱 아이콘 이미지 추가\n위도 경도 정보가 표시되던것을 주소정보로 수정
