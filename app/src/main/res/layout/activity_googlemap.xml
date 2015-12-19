@@ -43,4 +43,12 @@
         android:layout_toStartOf="@+id/bt_save"
         android:hint="현재위치정보를 입력하세요"/>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registrationProgressBar"
+        android:indeterminate="false"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

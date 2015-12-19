@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,6 +34,7 @@ public class GoogleMapActivity extends AppCompatActivity {
     Intent diary;
     double lon;
     double lat;
+    private ProgressBar mRegistrationProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class GoogleMapActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_googlemap);
         mContext = this.getApplication().getApplicationContext();
+        mRegistrationProgressBar = (ProgressBar) findViewById(R.id.registrationProgressBar);
 
         diary= new Intent(this,DiaryActivity.class);
 
@@ -56,6 +59,7 @@ public class GoogleMapActivity extends AppCompatActivity {
         MyLocation.LocationResult locationResult = new MyLocation.LocationResult() {
             @Override
             public void gotLocation(Location location) {
+                mRegistrationProgressBar.setVisibility(ProgressBar.GONE);
 
                 String msg = "현재 위치 \n위도: "+location.getLongitude()+" -- 경도: "+location.getLatitude();
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
@@ -73,9 +77,11 @@ public class GoogleMapActivity extends AppCompatActivity {
         mEtinform = (EditText) findViewById(R.id.et_inform);
         mBtsave = (Button) findViewById(R.id.bt_save);
 
+
         mBtsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(mContext, "데이터를 추가합니다", Toast.LENGTH_LONG).show();
                 String name = mEtinform.getText().toString();
 

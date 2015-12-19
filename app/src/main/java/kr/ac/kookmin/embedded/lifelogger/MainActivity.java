@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         bt_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "GPS 를 사용합니다", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "GPS 를 사용합니다 \n 잠시 기다려 주세요", Toast.LENGTH_LONG).show();
                 startActivity(mapintent);
             }
         });
