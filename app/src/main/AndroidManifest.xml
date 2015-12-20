@@ -64,6 +64,17 @@
             android:label="@string/title_activity_diary"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".RecordShow"
+            android:label="@string/title_activity_diary"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name=".SelectAct"
+            android:label="@string/title_activity_diary"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
 
     </application>
 

@@ -75,6 +75,16 @@
             android:label="@string/title_activity_diary"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name="kr.ac.kookmin.embedded.lifelogger.RecordShow"
+            android:label="@string/title_activity_diary"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="kr.ac.kookmin.embedded.lifelogger.SelectAct"
+            android:label="@string/title_activity_diary"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
 
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity

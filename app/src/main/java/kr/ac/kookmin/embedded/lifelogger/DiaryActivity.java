@@ -33,6 +33,7 @@ public class DiaryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String local = intent.getExtras().getString("local");
         final String addr = intent.getExtras().getString("address");
+        final String act = intent.getExtras().getString("act");
         final double lon = intent.getExtras().getDouble("lon");
         final double lat = intent.getExtras().getDouble("lat");
 
@@ -40,11 +41,13 @@ public class DiaryActivity extends AppCompatActivity {
         mContext = this.getApplication().getApplicationContext();
         what = (EditText)findViewById(R.id.editText);
 
+        TextView textView0 = (TextView)findViewById(R.id.textView10);
         TextView textView1 = (TextView)findViewById(R.id.textView);
         TextView textView2 = (TextView)findViewById(R.id.textView4);
         TextView textView3 = (TextView)findViewById(R.id.textView5);
         TextView textView4 = (TextView)findViewById(R.id.textView9);
 
+        textView0.setText(act);
         textView1.setText(local);
         textView2.setText(String.valueOf(lon));
         textView3.setText(String.valueOf(lat));
@@ -62,7 +65,7 @@ public class DiaryActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "저장되었습니다", Toast.LENGTH_LONG).show();
                 String diary = what.getText().toString();
 
-                insertData(local,lon,lat,diary);
+                insertData(local,lon,lat,diary,act);
                 finish();
             }
         });
@@ -72,15 +75,15 @@ public class DiaryActivity extends AppCompatActivity {
     //Table 생성
     public void createTable() {
         try {
-            String sql = "create table " + tableName + "(id integer primary key autoincrement, name TEXT, lon TEXT, lat TEXT, what TEXT)";
+            String sql = "create table " + tableName + "(id integer primary key autoincrement, name TEXT, lon TEXT, lat TEXT, what TEXT, act TEXT)";
             db.execSQL(sql);
         } catch (android.database.sqlite.SQLiteException e) {
         }
     }
 
     //Data 추가
-    public void insertData(String name,Double lon,Double lat,String what) {
-        String sql = "INSERT INTO " + tableName + " VALUES (NULL, '" +name +  "', '" + lon + "', '" + lat + "', '" + what + "');";
+    public void insertData(String name,Double lon,Double lat,String what,String act) {
+        String sql = "INSERT INTO " + tableName + " VALUES (NULL, '" +name +  "', '" + lon + "', '" + lat + "', '" + what + "', '" + act + "');";
         db.execSQL(sql);
     }
 

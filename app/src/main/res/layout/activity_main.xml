@@ -10,14 +10,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="지도보기"
+        android:text="기록하기"
         android:id="@+id/bt_map"
         android:background="@android:drawable/ic_menu_mapmode"
+        android:layout_marginTop="73dp"
+        android:textColor="#ffffff"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/bt_data"
-        android:layout_alignStart="@+id/bt_data"
-        android:layout_marginTop="133dp"
-        android:textColor="#ffffff" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,8 +24,18 @@
         android:text="데이터 조회"
         android:id="@+id/bt_data"
         android:background="@android:drawable/ic_menu_search"
-        android:layout_marginBottom="144dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="통계 확인"
+        android:id="@+id/bt_record"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="83dp"
+        android:background="@android:drawable/ic_menu_agenda"
         android:textColor="#ffffff" />
 </RelativeLayout>

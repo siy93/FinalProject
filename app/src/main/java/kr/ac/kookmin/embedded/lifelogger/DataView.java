@@ -31,6 +31,7 @@ public class DataView extends AppCompatActivity {
 
     //variable
     String Title;
+    String act;
     String what;
     String lon;
     String lat;
@@ -48,6 +49,7 @@ public class DataView extends AppCompatActivity {
 
         TextView textView1 = (TextView)findViewById(R.id.textView6);
         TextView textView2 = (TextView)findViewById(R.id.textView7);
+        TextView textView3 = (TextView)findViewById(R.id.textView11);
 
 
 
@@ -70,15 +72,17 @@ public class DataView extends AppCompatActivity {
 
         // result(Cursor 객체)가 비어 있으면 false 리턴
         if (result.moveToFirst()) {
-            Title = result.getString(1);
+            Title = result.getString(5);
             what = result.getString(4);
             lon = result.getString(2);
             lat = result.getString(3);
+            act = result.getString(1);
         }
         result.close();
 
         textView1.setText(Title);
         textView2.setText(what);
+        textView3.setText(act);
 
         mlon = Double.valueOf(lon);
         mlat = Double.valueOf(lat);

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clickable="false"
+    android:background="#3a3a3a">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공부"
+        android:id="@+id/bt1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="117dp"
+        android:background="@android:drawable/ic_menu_edit"
+        android:clickable="false"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="운동"
+        android:id="@+id/bt2"
+        android:layout_below="@+id/bt1"
+        android:layout_centerHorizontal="true"
+        android:background="@android:drawable/ic_menu_myplaces"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여가"
+        android:id="@+id/bt3"
+        android:layout_below="@+id/bt2"
+        android:layout_alignLeft="@+id/bt2"
+        android:layout_alignStart="@+id/bt2"
+        android:background="@android:drawable/ic_menu_send"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유흥,오락"
+        android:id="@+id/bt4"
+        android:layout_below="@+id/bt3"
+        android:layout_alignLeft="@+id/bt3"
+        android:layout_alignStart="@+id/bt3"
+        android:background="@android:drawable/ic_menu_compass"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기타"
+        android:id="@+id/bt5"
+        android:layout_below="@+id/bt4"
+        android:layout_centerHorizontal="true"
+        android:background="@android:drawable/ic_menu_help"
+        android:textColor="#ffffff" />
+</RelativeLayout>

@@ -15,9 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     Button bt_map;
     Button bt_data;
+    Button bt_record;
     Context mContext;
     Intent mapintent;
     Intent dataintent;
+    Intent selectintent;
     Intent splash;
 
 
@@ -29,9 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         bt_map = (Button) findViewById(R.id.bt_map);
         bt_data = (Button) findViewById(R.id.bt_data);
+        bt_record = (Button) findViewById(R.id.bt_record);
 
         mapintent = new Intent(this, GoogleMapActivity.class);
         dataintent = new Intent(this, DBListActivity.class);
+        selectintent = new Intent(this, SelectAct.class);
         splash = new Intent(this, SplashActivity.class);
 
         // Splash(로딩화명) 띄우기
@@ -45,12 +49,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         bt_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "데이터 를 조회합니다", Toast.LENGTH_LONG).show();
                 startActivity(dataintent);
+            }
+        });
+
+        bt_record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "통계를 조회합니다", Toast.LENGTH_LONG).show();
+                startActivity(selectintent);
             }
         });
     }

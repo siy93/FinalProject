@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:2:1-70:12
+ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:2:1-81:12
 	package
 		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml
@@ -74,7 +74,7 @@ MERGED from [com.google.android.gms:play-services-maps:8.3.0] C:\Users\Public\Li
 	android:required
 		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:18:9-32
 application
-ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:20:5-68:19
+ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:20:5-79:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\Public\LifeLogger\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] C:\Users\Public\LifeLogger\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.1.1] C:\Users\Public\LifeLogger\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\AndroidManifest.xml:22:5-20
@@ -248,6 +248,22 @@ ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:62:9-66:2
 		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:65:13-56
 	android:name
 		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:63:13-37
+activity#kr.ac.kookmin.embedded.lifelogger.RecordShow
+ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:67:9-71:20
+	android:label
+		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:69:13-57
+	android:theme
+		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:70:13-56
+	android:name
+		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:68:13-39
+activity#kr.ac.kookmin.embedded.lifelogger.SelectAct
+ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:73:9-77:20
+	android:label
+		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:75:13-57
+	android:theme
+		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:76:13-56
+	android:name
+		ADDED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml:74:13-38
 uses-sdk
 INJECTED from C:\Users\Public\LifeLogger\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\Public\LifeLogger\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:20:5-43

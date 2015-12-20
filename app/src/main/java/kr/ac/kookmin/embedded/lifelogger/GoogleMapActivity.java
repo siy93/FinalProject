@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -35,22 +36,75 @@ public class GoogleMapActivity extends AppCompatActivity {
     Button mBtsave;
     Context mContext;
     private ProgressBar mRegistrationProgressBar;
+    RadioButton radio1;
+    RadioButton radio2;
+    RadioButton radio3;
+    RadioButton radio4;
+    RadioButton radio5;
+
 
     //Intent and Variable
     Intent diary;
     double lon;
     double lat;
+    String selected = "기타";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_googlemap);
+
+
+        //Object about layout
         mContext = this.getApplication().getApplicationContext();
         mRegistrationProgressBar = (ProgressBar) findViewById(R.id.registrationProgressBar);
         mEtinform = (EditText) findViewById(R.id.et_inform);
         mBtsave = (Button) findViewById(R.id.bt_save);
+        radio1 = (RadioButton) findViewById(R.id.radioButton1);
+        radio2 = (RadioButton) findViewById(R.id.radioButton2);
+        radio3 = (RadioButton) findViewById(R.id.radioButton3);
+        radio4 = (RadioButton) findViewById(R.id.radioButton4);
+        radio5 = (RadioButton) findViewById(R.id.radioButton5);
 
+        radio1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                selected = "공부";
+                diary.putExtra("act",selected);
+            }
+        });
+        radio2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                selected = "운동";
+                diary.putExtra("act",selected);
+            }
+        });
+        radio3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                selected = "여가";
+                diary.putExtra("act",selected);
+            }
+        });
+        radio4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                selected = "유흥,오락";
+                diary.putExtra("act",selected);
+            }
+        });
+        radio5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selected = "기타";
+                diary.putExtra("act", selected);
+            }
+        });
+
+
+        //intent
         diary= new Intent(this,DiaryActivity.class);
 
         //구글 맵 관련 메소드
@@ -86,7 +140,7 @@ public class GoogleMapActivity extends AppCompatActivity {
 
                 Toast.makeText(mContext, "데이터를 추가합니다", Toast.LENGTH_LONG).show();
                 String name = mEtinform.getText().toString();
-                String addr = getLocation(lat,lon);
+                String addr = getLocation(lat, lon);
 
 
                 mEtinform.clearFocus();
@@ -98,14 +152,11 @@ public class GoogleMapActivity extends AppCompatActivity {
                 diary.putExtra("local", name);
                 diary.putExtra("lon", lon);
                 diary.putExtra("lat", lat);
-                diary.putExtra("address",addr);
+                diary.putExtra("address", addr);
                 startActivity(diary);
             }
         });
-
-
     }
-
     //구글 맵 관련 메소드
     private void drawMarker(Location location) {
 

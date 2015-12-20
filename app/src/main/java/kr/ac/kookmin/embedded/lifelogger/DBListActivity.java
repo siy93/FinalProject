@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -90,6 +91,8 @@ public class DBListActivity extends AppCompatActivity implements AdapterView.OnI
         String sql = "select * from " + tableName + ";";
         Cursor results = db.rawQuery(sql, null);
         results.moveToFirst();
+        if(results.getCount() == 0)
+            Toast.makeText(getApplicationContext(), "데이터가 없습니다.", Toast.LENGTH_SHORT).show();
 
         while (!results.isAfterLast()) {
             String id = results.getString(0);
