@@ -53,4 +53,16 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	-		코드 간결화 ,커버리지 높이기
 	-		데이터 초기화 시 바로 나타나게 수정
 	-		UI개선
+	
+		
+####v_2.0	
+
+	-		통계기능 추가
+		-	라디오 버튼을 추가해 활동 별로 선택할 수 있게함.
+		-	각 활동 별로 지도에 마커를 추가해 어느지역에서 어느 활동을 했는지 확인 할 수있음
+		-	Act 테이블 추가
+	-		DB에 데이터가 없을 시에 토큰 메세지를 띄우도록 수정
+	-		UI 개선
+	
+	
 
